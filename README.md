@@ -12,7 +12,7 @@ Hver topic skal ta maks **20 minutter**, og fungerer både som *dagens recap* og
 | [Next.js](https://nextjs.org/) | **v16** | App Router, rask SSR/SSG, innebygget metadata og routing |
 | [Tailwind CSS](https://tailwindcss.com/) | **v4.x** | Stiloppsett i `globals.css`, fokus på enkelhet og tema-variabler |
 | [Supabase](https://supabase.com/) | — | Database, autentisering og lagring |
-| JavaScript (uten TypeScript) | — | Prosjektet skal være lett å lese og forstå |
+| JavaScript| — | Prosjektet skal være lett å lese og forstå |
 | Vercel + GitHub | — | Deploy & samarbeid |
 
 ---
@@ -29,9 +29,7 @@ Dette prosjektet brukes til å:
 ---
 
 
----
-
-## ⚙️ Kom i gang
+## Kom i gang
 
 ### 1. Klon repoet
 ```bash
