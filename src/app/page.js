@@ -23,6 +23,9 @@ export default function HomePage() {
                 <li>
                     Header/Footer lever i <code>src/app/components/</code>
                 </li>
+                <li>
+                    Universell dekorering av sidene gjøres i <code>src/app/globals.css</code>
+                </li>
             </ul>
         </section>
     );
