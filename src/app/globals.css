@@ -1,26 +1,254 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: #f5f3ef;
+        --foreground: #1c1a19;
+        --muted: #6f6258;
+        --card: #ffffff;
+        --accent: #8b5e34;
+        --accent-weak: #f1e7dc;
+        --border: #e2d9ce;
+        --ring: #b4845c;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #14110f;
+        --foreground: #e7e0d7;
+        --muted: #a89382;
+        --card: #1b1816;
+        --accent: #c19a6b;
+        --accent-weak: #2b241e;
+        --border: #2f2a25;
+        --ring: #c19a6b;
+    }
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+:root {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    color-scheme: light dark;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+        Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+        "Segoe UI Emoji";
+    line-height: var(--leading);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background-image: radial-gradient(
+        60rem 30rem at 50% -10rem,
+        color-mix(in oklab, var(--accent) 14%, transparent),
+        transparent
+    );
+    background-attachment: fixed;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+a {
+    color: var(--accent);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 0.08em;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+h1,
+h2,
+h3 {
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+h1 {
+    font-size: clamp(2rem, 2.2vw + 1.4rem, 3rem);
+}
+h2 {
+    font-size: clamp(1.5rem, 1.2vw + 1.1rem, 2.25rem);
+}
+h3 {
+    font-size: clamp(1.25rem, 0.7vw + 1rem, 1.5rem);
+}
+p {
+    max-width: var(--measure);
+}
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin-block: 1.5rem;
+}
+
+code,
+kbd,
+samp {
+    font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Consolas,
+        "Liberation Mono", monospace;
+    font-size: 0.95em;
+    background: color-mix(in oklab, var(--foreground) 6%, transparent);
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+}
+pre code {
+    display: block;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto;
+}
+blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-left: 0.25rem;
+    color: var(--muted);
+}
+
+.container {
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+}
+
+.section {
+    padding-block: clamp(2.5rem, 4vw, 4rem);
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+.card:hover {
+    box-shadow: var(--shadow-md);
+    transition: box-shadow 0.2s ease;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: calc(var(--radius) - 6px);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    transition: transform 0.02s ease, background-color 0.15s ease,
+        border-color 0.15s ease;
+}
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    border-radius: 20px;
+    border-color: color-mix(in oklab, var(--accent) 60%, black);
+}
+.btn-primary:hover {
+    background: color-mix(in oklab, var(--accent) 86%, black);
+}
+
+.btn-ghost {
+    background: color-mix(in oklab, var(--accent) 8%, transparent);
+    color: var(--foreground);
+    border-color: color-mix(in oklab, var(--accent) 18%, transparent);
+}
+.btn-ghost:hover {
+    background: color-mix(in oklab, var(--accent) 14%, transparent);
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    background: var(--accent-weak);
+    color: color-mix(in oklab, var(--accent) 55%, black);
+    border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+.fade-in {
+    animation: fade-in 0.25s ease-out both;
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.input,
+.select,
+.textarea {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.65rem 0.8rem;
+}
+.input::placeholder,
+.textarea::placeholder {
+    color: color-mix(in oklab, var(--muted) 80%, transparent);
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.glass {
+    background: color-mix(in oklab, var(--background) 40%, transparent);
+    backdrop-filter: blur(8px);
+    border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
+    border-radius: var(--radius);
+}
+
+.prose-cozy > * + * {
+    margin-top: 0.7em;
+}
+.prose-cozy p {
+    max-width: var(--measure);
 }
