@@ -35,7 +35,3 @@ Dette prosjektet brukes til å:
 ```bash
 git clone https://github.com/<brukernavn>/<repo-navn>.git
 cd <repo-navn>
-
-
-
-
