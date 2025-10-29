@@ -89,6 +89,12 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Ensure links styled as buttons don't show underline */
+a.btn,
+a.btn:hover {
+    text-decoration: none;
+}
+
 :focus-visible {
     outline: 2px solid var(--ring);
     outline-offset: 3px;
@@ -189,12 +195,12 @@ blockquote {
 }
 
 .btn-ghost {
-    background: color-mix(in oklab, var(--accent) 8%, transparent);
+    background: color-mix(in oklab, var(--accent) 12%, transparent);
     color: var(--foreground);
-    border-color: color-mix(in oklab, var(--accent) 18%, transparent);
+    border-color: color-mix(in oklab, var(--accent) 24%, transparent);
 }
 .btn-ghost:hover {
-    background: color-mix(in oklab, var(--accent) 14%, transparent);
+    background: color-mix(in oklab, var(--accent) 20%, transparent);
 }
 
 .badge {

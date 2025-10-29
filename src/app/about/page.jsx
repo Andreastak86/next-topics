@@ -21,7 +21,7 @@ export default function AboutPage() {
                     <Link href='/contact' className='btn btn-primary'>
                         Ta kontakt
                     </Link>
-                    <Link href='/' className='btn btn-ghost'>
+                    <Link href='/' className='btn btn-primary'>
                         Til forsiden
                     </Link>
                 </div>
